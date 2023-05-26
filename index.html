@@ -3,15 +3,55 @@
 <html lang="hu">
 
   <head>
+
+    <!-- UTF-8 Coding -->
     <meta charset="UTF-8" />
+    <!-- Viewport Scaling -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Import Styles -->
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- Title -->
     <title>CrypNoty</title>
+
   </head>
 
   <body>
-    <div id="app"></div>
-    <script type="module" src="./scripts/main.js"></script>
+
+    <div class="mainContainer">
+
+      <div class="navbarContainer">
+        <nav class="navbar">
+          <div class="navbarTitleHamburger">
+            <a href="#">CrypNoty</a>
+            <div class="hamburgerMenu">
+              <span class="bar" id="bar1"></span>
+              <span class="bar" id="bar2"></span>
+            </div>
+          </div>
+          <div class="navbarElements">
+            <a href="#">Főoldal</a>
+            <a href="#">Rólunk</a>
+            <a href="#">Notesz</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="contentContainer">
+        <div class="noteContainer">
+          <div class="notes"></div>
+        </div>
+      </div>
+
+      <div class="footerContainer">
+        <div class="footer"></div>
+      </div>
+
+    </div>
+
+    <!-- Import Scripts (Modules) -->
+    <script type="module" src="./scripts/hamburgerMEnu.js"></script>
+    <script type="module" src="./scripts/notes.js"></script>
+    <script type="module" src="./scripts/api.js"></script>
   </body>
 
 </html>

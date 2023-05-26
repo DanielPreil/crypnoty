@@ -1,3 +1,8 @@
+/* Import Montserrat Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');
+
+/* Default CSS Reset */
+
 * {
   padding: 0%;
   margin: 0%;
@@ -11,4 +16,181 @@ html {
 body {
   background-color: rgb(16, 16, 16);
   color: whitesmoke;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
+
+/* Default CSS Reset Over */
+
+
+/* Navbar */
+
+.navbarContainer {
+  border-bottom: 1px solid rgb(22, 226, 90);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  backdrop-filter: (20px);
+  position: sticky;
+  top: 0%;
+  left: 0%;
+}
+
+.navbarContainer {
+  display: flex;
+}
+
+.navbar {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbarElements {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.navbar a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 200;
+  transition: 0.2s;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.navbar a:hover {
+  color: rgb(27, 255, 103);
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(27, 255, 103);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navbar a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navbarTitleHamburger {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.hamburgerMenu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bar {
+  width: 35px;
+  height: 3px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+/* Navbar Over */
+
+
+/* Content */
+
+.contentContainer {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Content Over */
+
+
+/* Navbar Responsiveness If Width <= 768px */
+
+@media (width <= 768px) {
+
+  .hamburgerMenu {
+    display: flex;
+  }
+
+  .navbarElements{
+    display: none;
+  }
+
+  .navbarElements.showAndHide {
+    display: flex;
+  }
+
+  #bar1.rotateAndMove {
+    transform: rotate(40deg);
+    position: relative;
+    top: 8px;
+    background-color: rgb(27, 255, 103);
+  }
+
+  #bar2.rotateAndMove {
+    transform: rotate(-40deg);
+    position: relative;
+    bottom: 5px;
+    background-color: rgb(27, 255, 103);
+  }
+
+  .navbarElements {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .navbarTitleHamburger {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+/* Navbar Responsiveness If Width <= 768px Over */
+
+
+/* Disable Hover Effects If Width <= 820px */
+
+@media (width <= 820px) {
+
+  .navbar a:hover {
+    color: whitesmoke;
+  }
+  
+  .navbar a::after {
+    content: none;
+  }
+  
+  .navbar a:hover::after {
+    transform: scaleX(0);
+  }
+}
+
+/* Disable Hover Effects If Width <= 820px Over */
