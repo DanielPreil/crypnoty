@@ -1,3 +1,59 @@
+/* If Width <= 1800px */
+
+
+@media (width <= 1800px) {
+
+  .welcomeGRID {
+    width: 630px;
+    height: 630px;
+    gap: 30px;
+  }
+
+  .welcomeAria {
+    width: 85%;
+  }
+  
+  .welcomeTexts {
+    gap: 35px;
+  }
+  
+  .welcomeTitle {
+    text-align: center;
+    font-size: 45px;
+    letter-spacing: 3px;
+    font-weight: 900;
+  }
+  
+  .welcomeParagraph {
+    font-size: 24px;
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    font-weight: 300;
+    line-height: 140%;
+  }
+  
+  .welcomeButtonsContainer {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .welcomeButtons {
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-decoration: none;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+}
+
+/* If Width <= 1800px Over */
+
+
 /* If Width <= 1280px */
 
 @media (width <= 1280px) {
