@@ -1,7 +1,14 @@
-
 /* Navbar Responsiveness If Width <= 768px */
 
 @media (width <= 768px) {
+
+  .navbar a {
+    font-size: 22px;
+  }
+
+  #navbarTitle {
+    font-size: 24px;
+  }
 
   .hamburgerMenu {
     display: flex;
@@ -10,9 +17,10 @@
   .navbarElements{
     display: none;
   }
-
+  
   .navbarElements.showAndHide {
     display: flex;
+    margin-top: 6%;
   }
 
   #bar1.rotateAndMove {
