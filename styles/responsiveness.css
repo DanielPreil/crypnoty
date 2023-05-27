@@ -62,6 +62,18 @@
     display: none;
   }
 
+  .navbar a:hover {
+    color: whitesmoke;
+  }
+  
+  .navbar a::after {
+    display: none;
+  }
+  
+  .navbar a:hover::after {
+    display: none;
+  }
+
   .contentContainer {
     flex-direction: column;
   }
