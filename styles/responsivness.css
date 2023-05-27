@@ -1,0 +1,75 @@
+/* If Width <= 1280px */
+
+@media (width <= 1280px) {
+
+  .circle-cursor {
+    display: none;
+  }
+
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .welcomeGRIDShowContainer {
+    display: none;
+  }
+
+  .welcomeAria {
+    width: 85%;
+  }
+  
+  .welcomeTexts {
+    gap: 30px;
+  }
+  
+  .welcomeTitle {
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 3px;
+    font-weight: 900;
+  }
+  
+  .welcomeParagraph {
+    font-size: 23px;
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    font-weight: 300;
+    line-height: 140%;
+  }
+  
+  .welcomeButtonsContainer {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .welcomeButtons {
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-decoration: none;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .welcomeButtonsContainer .welcomeButtons:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* If Width <= 1280px Over */
+
+@media (width <= 1024px) {
+  
+}
+
+@media (width <= 768px) {
+
+}
+
+@media (width <= 480px) {
+
+}

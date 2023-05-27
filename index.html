@@ -9,7 +9,12 @@
     <!-- Viewport Scaling -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Import Styles -->
+    <!-- Import style.css -->
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- Import navbarResp.css -->
+    <link rel="stylesheet" href="./styles/navbarResp.css">
+    <!-- Import responsivness.css -->
+    <link rel="stylesheet" href="./styles/responsiveness.css">
     <!-- Title -->
     <title>CrypNoty</title>
 
@@ -17,12 +22,15 @@
 
   <body>
 
-    <div class="mainContainer">
+    <div id="myCanvas"></div>
 
+    
+    <div class="mainContainer">
+      
       <div class="navbarContainer">
         <nav class="navbar">
           <div class="navbarTitleHamburger">
-            <a href="#">CrypNoty</a>
+            <a id="navbarTitle" href="#">CrypNoty</a>
             <div class="hamburgerMenu">
               <span class="bar" id="bar1"></span>
               <span class="bar" id="bar2"></span>
@@ -38,16 +46,38 @@
 
       <div class="contentContainer">
         <div class="welcomeContainer">
-          <div class="welcomeButtons">
-            <a>Notesz</a>
-            <a>Dokuemntáció</a>
+          <div class="welcomeAria">
+            <div class="welcomeTexts">
+              <h1 class="welcomeTitle">CrypNoty ~ Egy új kezdet</h1>
+              <p class="welcomeParagraph">Üdvözöllek a CrypNoty világában, ahol lehetőséged nyílik arra, hogy könnyedén nyomon kövesd kedvenc kriptovalutáidat és gondolataidat jegyzetek formájában rögzítsd. Ha a pénzügyi világ izgalmas részese vagy, akkor a CrypNoty az ideális választás számodra.</p>
+            </div>
+            <div class="welcomeButtonsContainer">
+              <a href="#" class="welcomeButtons">
+                <h1>Kezdés</h1>
+                <img src="/images/icons/rocket-launch-icon.png" width="32" alt="Rocket Icon">
+              </a>
+              <a href="#" class="welcomeButtons">
+                <h1>Miért&nbsp;CrypNoty</h1>
+                <img src="/images/icons/question-mark-icon.png" width="23" alt="Question Icon">
+              </a>
+              <a href="#" class="welcomeButtons">
+                <h1>GitHub</h1>
+                <img src="/images/icons/black-star-icon.png" width="32" alt="Star Icon">
+              </a>
+            </div>
           </div>
         </div>
-        <div class="welcomeImageContainer">
-          <div class="loading-box-container">
-            <div class="loading-box">
-
-            </div>
+        <div class="welcomeGRIDShowContainer">
+          <div class="welcomeGRID">
+            <div class="welcomeGridItem"></div>
+            <div class="welcomeGridItem"></div>
+            <div class="welcomeGridItem"></div>
+            <div class="welcomeGridItem"></div>
+            <div class="welcomeGridItem"></div>
+            <div class="welcomeGridItem"></div>
+            <div class="welcomeGridItem"></div>
+            <div class="welcomeGridItem"></div>
+            <div class="welcomeGridItem"></div>
           </div>
         </div>
       </div>
@@ -56,9 +86,7 @@
         <div class="footer"></div>
       </div>
 
-      <div class="circle-cursor">
-
-      </div>
+      <div class="circle-cursor"></div>
 
     </div>
 

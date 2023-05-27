@@ -1,0 +1,50 @@
+
+/* Navbar Responsiveness If Width <= 768px */
+
+@media (width <= 768px) {
+
+  .hamburgerMenu {
+    display: flex;
+  }
+
+  .navbarElements{
+    display: none;
+  }
+
+  .navbarElements.showAndHide {
+    display: flex;
+  }
+
+  #bar1.rotateAndMove {
+    transform: rotate(40deg);
+    position: relative;
+    top: 8px;
+    background-color: rgb(27, 255, 103);
+  }
+
+  #bar2.rotateAndMove {
+    transform: rotate(-40deg);
+    position: relative;
+    bottom: 5px;
+    background-color: rgb(27, 255, 103);
+  }
+
+  .navbarElements {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .navbarTitleHamburger {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+/* Navbar Responsiveness If Width <= 768px Over */
