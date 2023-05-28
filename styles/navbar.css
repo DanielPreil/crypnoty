@@ -1,0 +1,174 @@
+/* Navbar */
+
+.navbarContainer {
+  border-bottom: 1px solid rgb(22, 226, 90);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0%;
+  left: 0%;
+  z-index: 100;
+  display: flex;
+  margin-bottom: 5%;
+}
+
+.navbar {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbarElements {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.navbar a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 500;
+  font-style: italic;
+  transition: 0.2s;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 1.5px;
+}
+
+.navbar a:hover {
+  color: rgb(27, 255, 103);
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(27, 255, 103);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navbar a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#navbarTitle {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.navbarTitleHamburger {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.hamburgerMenu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bar {
+  width: 35px;
+  height: 3px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+/* Navbar Over */
+
+/* Navbar Responsiveness If Width <= 768px */
+
+@media (width <= 768px) {
+
+  .navbar a {
+    font-size: 22px;
+  }
+
+  #navbarTitle {
+    font-size: 24px;
+  }
+
+  .hamburgerMenu {
+    display: flex;
+  }
+
+  .navbarElements{
+    display: none;
+  }
+  
+  .navbarElements.showAndHide {
+    display: flex;
+    margin-top: 6%;
+  }
+
+  #bar1.rotateAndMove {
+    transform: rotate(40deg);
+    position: relative;
+    top: 8px;
+    background-color: rgb(27, 255, 103);
+  }
+
+  #bar2.rotateAndMove {
+    transform: rotate(-40deg);
+    position: relative;
+    bottom: 5px;
+    background-color: rgb(27, 255, 103);
+  }
+
+  .navbarElements {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .navbarTitleHamburger {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+/* Navbar Responsiveness If Width <= 768px Over */
+
+
+/* If Width <= 1280px */
+
+@media (width <= 1280px) {
+
+  .navbar a:hover {
+    color: whitesmoke;
+  }
+  
+  .navbar a::after {
+    display: none;
+  }
+  
+  .navbar a:hover::after {
+    display: none;
+  }
+}
+
+/* If Width <= 1280px Over */
