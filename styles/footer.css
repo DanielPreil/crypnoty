@@ -85,6 +85,35 @@
   padding-top: 1%;
 }
 
+.footerCreatedBy a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-style: italic;
+  transition: 0.2s;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 1.5px;
+}
+
+.footerCreatedBy a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.footerCreatedBy a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 /* Footer Over */
 
 
