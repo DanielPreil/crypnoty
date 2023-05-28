@@ -1,0 +1,109 @@
+/* Content */
+
+.contentContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.welcomeTexts {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  padding: 3%;
+  mix-blend-mode: difference;
+  width: 100vw;
+  height: 100vh;
+}
+
+.welcomeText {
+  font-size: 28px;
+  width: 80%;
+  align-self: center;
+  text-align: left;
+  font-weight: 300;
+  line-height: 180%;
+}
+
+/* Content Over */
+
+
+/* If Width <= 1800px */
+
+@media (width <= 1800px) {
+  
+  .welcomeTexts {
+    gap: 35px;
+  }
+  
+  .welcomeText {
+    padding: 1%;
+    font-size: 27px;
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    font-weight: 300;
+    line-height: 140%;
+  }
+}
+
+/* If Width <= 1800px Over */
+
+
+/* If Width <= 1280px */
+
+@media (width <= 1280px) {
+
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .welcomeText {
+    font-size: 23px;
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    font-weight: 300;
+    line-height: 112%;
+  }
+}
+
+/* If Width <= 1280px Over */
+
+
+/* If Width <= 1024px */
+
+@media (width <= 1024px) {
+  
+  .welcomeTexts {
+    gap: 30px;
+  }
+  
+  .welcomeText {
+    font-size: 21px;
+    width: 100%;
+  }
+}
+
+/* If Width <= 1024px Over */
+
+
+/* If Width <= 400px */
+
+@media (width <= 400px) {
+
+  .welcomeText {
+    font-size: 22px;
+    width: 100%;
+  }
+
+  .contentContainer {
+    margin-top: 100%;
+    margin-bottom: 100%;
+  }
+}
+
+/* If Width <= 400px Over */

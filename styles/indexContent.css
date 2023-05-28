@@ -272,10 +272,6 @@
 
 @media (width <= 1280px) {
 
-  .circle-cursor {
-    display: none;
-  }
-
   .contentContainer {
     flex-direction: column;
   }
