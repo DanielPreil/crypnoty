@@ -1,17 +1,19 @@
-let Cosmos = new WebSocket('wss://ws.coincap.io/prices?assets=cardano');
-let stockPriceElementCosmos = document.getElementById('cardano-price');
-let lastPriceCosmos = null;
-
-Cosmos.onmessage = (evt) => {
-    let stockObject = JSON.parse(evt.data);
-    let price = parseFloat(stockObject.cardano).toFixed(2);
-    stockPriceElementCosmos.innerText = price + ' $';
-    stockPriceElementCosmos.style.color = lastPriceCosmos === null || lastPriceCosmos === price ? 'white': price > lastPriceCosmos ? 'lightgreen' : 'red';
-    lastPriceCosmos = price;
-};
-
-Cosmos.onerror = (evt) => {
-    console.error('WebSocket error:', evt);
-    stockPriceElementCosmos.innerText = 'Error fetching stock price.';
-    Cosmos.close();
-  };
+const stockPriceElement = document.getElementById('cardano-price');
+let lastPrice = null;
+  
+async function fetchStockPrice() {    
+  try {
+    const response = await fetch('https://api.coincap.io/v2/assets/cardano');
+    const data = await response.json();
+    const price = parseFloat(data.data.priceUsd).toFixed(2);
+    stockPriceElement.innerText = `${price} $`;
+    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white' : price > lastPrice ? 'lightgreen' : 'red';
+    lastPrice = price;
+  } catch (error) {
+    stockPriceElement.innerText = 'Error fetching price.';
+  }
+}
+  
+fetchStockPrice();
+setInterval(fetchStockPrice, 10000);
+  

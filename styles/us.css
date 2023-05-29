@@ -1,0 +1,73 @@
+.profileContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: self-start;
+}
+
+.profileContainer ul {
+  margin-top: 5%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileContainer img{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  align-self: center;
+}
+
+.profileContainer ul li{
+  list-style-type: none;
+  font-size: 20px;
+}
+
+/* If Width <= 1280px */
+
+@media (width <= 1280px) {
+  .profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profileContainer ul li{
+    list-style-type: none;
+    font-size: 18px;
+  }
+
+  .profileContainer img{
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+  }
+
+  .profileContainer ul {
+    gap: 15px;
+  }
+}
+
+/* If Width <= 1280px Over */
+
+/* If Width <= 400px */
+
+@media (width <= 400px) {
+  .profileContainer img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .profileContainer ul {
+    gap: 10px;
+  }
+}
+
+/* If Width <= 400px Over */

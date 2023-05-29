@@ -1,17 +1,18 @@
-let aaven = new WebSocket('wss://ws.coincap.io/prices?assets=aave'); 
-let stockPriceElementaaven = document.getElementById('aaven-price');
-let lastPriceaaven = null;
+const stockPriceElement = document.getElementById('aaven-price');
+let lastPrice = null;
 
-aaven.onmessage = (evt) => {
-    let stockObject = JSON.parse(evt.data);
-    let price = parseFloat(stockObject.aave).toFixed(2);
-    stockPriceElementaaven.innerText = price + ' $';
-    stockPriceElementaaven.style.color = lastPriceaaven === null || lastPriceaaven === price ? 'white': price > lastPriceaaven ? 'lightgreen' : 'red';
-    lastPriceaaven = price;
-};
+async function fetchStockPrice() {
+  try {
+    const response = await fetch('https://api.coincap.io/v2/assets/aave');
+    const data = await response.json();
+    const price = parseFloat(data.data.priceUsd).toFixed(2);
+    stockPriceElement.innerText = `${price} $`;
+    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white' : price > lastPrice ? 'lightgreen' : 'red';
+    lastPrice = price;
+  } catch (error) {
+    stockPriceElement.innerText = 'Error fetching price.';
+  }
+}
 
-aaven.onerror = (evt) => {
-  console.error('WebSocket error:', evt);
-  stockPriceElementaaven.innerText = 'Error fetching stock price.';
-  aaven.close();
-};
+fetchStockPrice();
+setInterval(fetchStockPrice, 10000);

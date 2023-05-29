@@ -1,17 +1,19 @@
-let coinprice = new WebSocket('wss://ws.coincap.io/prices?assets=ethereum'); 
-let stockPriceElementEth = document.getElementById('ethereum-price');
-let lastPriceEth = null;
-
-coinprice.onmessage = (evt) => {
-    let stockObject = JSON.parse(evt.data);
-    let price = parseFloat(stockObject.ethereum).toFixed(2);
-    stockPriceElementEth.innerText = price + ' $';
-    stockPriceElementEth.style.color = lastPriceEth === null || lastPriceEth === price ? 'white': price > lastPriceEth ? 'lightgreen' : 'red';
-    lastPriceEth = price;
-};
-
-coinprice.onerror = (evt) => {
-  console.error('WebSocket error:', evt);
-  stockPriceElementEth.innerText = 'Error fetching stock price.';
-  coinprice.close();
-};
+const stockPriceElement = document.getElementById('ethereum-price');
+let lastPrice = null;
+  
+async function fetchStockPrice() {    
+  try {
+    const response = await fetch('https://api.coincap.io/v2/assets/ethereum');
+    const data = await response.json();
+    const price = parseFloat(data.data.priceUsd).toFixed(2);
+    stockPriceElement.innerText = `${price} $`;
+    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white' : price > lastPrice ? 'lightgreen' : 'red';
+    lastPrice = price;
+  } catch (error) {
+    stockPriceElement.innerText = 'Error fetching price.';
+  }
+}
+  
+fetchStockPrice();
+setInterval(fetchStockPrice, 10000);
+  

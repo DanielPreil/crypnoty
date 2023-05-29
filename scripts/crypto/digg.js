@@ -1,17 +1,19 @@
-let digg = new WebSocket('wss://ws.coincap.io/prices?assets=digg'); 
-let stockPriceElementDigg = document.getElementById('digg-price');
-let lastPriceDigg = null;
-
-digg.onmessage = (evt) => {
-    let stockObject = JSON.parse(evt.data);
-    let price = parseFloat(stockObject.digg).toFixed(2);
-    stockPriceElementDigg.innerText = price + ' $';
-    stockPriceElementDigg.style.color = lastPriceDigg === null || lastPriceDigg === price ? 'white': price > lastPriceDigg ? 'lightgreen' : 'red';
-    lastPriceDigg = price;
-};
-
-digg.onerror = (evt) => {
-  console.error('WebSocket error:', evt);
-  stockPriceElementDigg.innerText = 'Error fetching stock price.';
-  digg.close();
-};
+const stockPriceElement = document.getElementById('digg-price');
+let lastPrice = null;
+  
+async function fetchStockPrice() {    
+  try {
+    const response = await fetch('https://api.coincap.io/v2/assets/digg');
+    const data = await response.json();
+    const price = parseFloat(data.data.priceUsd).toFixed(2);
+    stockPriceElement.innerText = `${price} $`;
+    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white' : price > lastPrice ? 'lightgreen' : 'red';
+    lastPrice = price;
+  } catch (error) {
+    stockPriceElement.innerText = 'Error fetching price.';
+  }
+}
+  
+fetchStockPrice();
+setInterval(fetchStockPrice, 10000);
+  

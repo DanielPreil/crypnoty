@@ -1,17 +1,19 @@
-let Litecoin = new WebSocket('wss://ws.coincap.io/prices?assets=litecoin'); 
-let stockPriceElementLitecoin = document.getElementById('litecoin-price');
-let lastPriceLitecoin = null;
-
-Litecoin.onmessage = (evt) => {
-    let stockObject = JSON.parse(evt.data);
-    let price = parseFloat(stockObject.litecoin).toFixed(2);
-    stockPriceElementLitecoin.innerText = price + ' $';
-    stockPriceElementLitecoin.style.color = lastPriceLitecoin === null || lastPriceLitecoin === price ? 'white': price > lastPriceLitecoin ? 'lightgreen' : 'red';
-    lastPriceLitecoin = price;
-};
-
-Litecoin.onerror = (evt) => {
-  console.error('WebSocket error:', evt);
-  stockPriceElementLitecoin.innerText = 'Error fetching stock price.';
-  Litecoin.close();
-};
+const stockPriceElement = document.getElementById('litecoin-price');
+let lastPrice = null;
+  
+async function fetchStockPrice() {    
+  try {
+    const response = await fetch('https://api.coincap.io/v2/assets/litecoin');
+    const data = await response.json();
+    const price = parseFloat(data.data.priceUsd).toFixed(2);
+    stockPriceElement.innerText = `${price} $`;
+    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white' : price > lastPrice ? 'lightgreen' : 'red';
+    lastPrice = price;
+  } catch (error) {
+    stockPriceElement.innerText = 'Error fetching price.';
+  }
+}
+  
+fetchStockPrice();
+setInterval(fetchStockPrice, 10000);
+  

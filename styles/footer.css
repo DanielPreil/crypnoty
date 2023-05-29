@@ -162,6 +162,14 @@
     gap: 8px;
     font-size: 11px;
   }
+
+  .footerCreatedBy a::after {
+    display: none;
+  }
+  
+  .footerCreatedBy a:hover::after {
+    display: none;
+  }
 }
 
 /* If Width <= 1024px Over */

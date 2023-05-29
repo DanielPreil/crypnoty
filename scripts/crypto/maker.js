@@ -1,17 +1,19 @@
-let Maker = new WebSocket('wss://ws.coincap.io/prices?assets=maker'); 
-let stockPriceElementMaker = document.getElementById('maker-price');
-let lastPriceMaker = null;
-
-Maker.onmessage = (evt) => {
-    let stockObject = JSON.parse(evt.data);
-    let price = parseFloat(stockObject.maker).toFixed(2);
-    stockPriceElementMaker.innerText = price + ' $';
-    stockPriceElementMaker.style.color = lastPriceMaker === null || lastPriceMaker === price ? 'white': price > lastPriceMaker ? 'lightgreen' : 'red';
-    lastPriceMaker = price;
-};
-
-Maker.onerror = (evt) => {
-  console.error('WebSocket error:', evt);
-  stockPriceElementMaker.innerText = 'Error fetching stock price.';
-  Maker.close();
-};
+const stockPriceElement = document.getElementById('maker-price');
+let lastPrice = null;
+  
+async function fetchStockPrice() {    
+  try {
+    const response = await fetch('https://api.coincap.io/v2/assets/maker');
+    const data = await response.json();
+    const price = parseFloat(data.data.priceUsd).toFixed(2);
+    stockPriceElement.innerText = `${price} $`;
+    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white' : price > lastPrice ? 'lightgreen' : 'red';
+    lastPrice = price;
+  } catch (error) {
+    stockPriceElement.innerText = 'Error fetching price.';
+  }
+}
+  
+fetchStockPrice();
+setInterval(fetchStockPrice, 10000);
+  

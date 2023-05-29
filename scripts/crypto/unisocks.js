@@ -1,17 +1,19 @@
-let unisocks = new WebSocket('wss://ws.coincap.io/prices?assets=unisocks'); 
-let stockPriceElementUnisocks = document.getElementById('unisocks-price');
-let lastPriceUnisocks = null;
-
-unisocks.onmessage = (evt) => {
-    let stockObject = JSON.parse(evt.data);
-    let price = parseFloat(stockObject.unisocks).toFixed(2);
-    stockPriceElementUnisocks.innerText = price + ' $';
-    stockPriceElementUnisocks.style.color = lastPriceUnisocks === null || lastPriceUnisocks === price ? 'white': price > lastPriceUnisocks ? 'lightgreen' : 'red';
-    lastPriceUnisocks = price;
-};
-
-unisocks.onerror = (evt) => {
-  console.error('WebSocket error:', evt);
-  stockPriceElementUnisocks.innerText = 'Error fetching stock price.';
-  unisocks.close();
-};
+const stockPriceElement = document.getElementById('unisocks-price');
+let lastPrice = null;
+  
+async function fetchStockPrice() {    
+  try {
+    const response = await fetch('https://api.coincap.io/v2/assets/unisocks');
+    const data = await response.json();
+    const price = parseFloat(data.data.priceUsd).toFixed(2);
+    stockPriceElement.innerText = `${price} $`;
+    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white' : price > lastPrice ? 'lightgreen' : 'red';
+    lastPrice = price;
+  } catch (error) {
+    stockPriceElement.innerText = 'Error fetching price.';
+  }
+}
+  
+fetchStockPrice();
+setInterval(fetchStockPrice, 10000);
+  

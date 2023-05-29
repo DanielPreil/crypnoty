@@ -1,17 +1,18 @@
-let ws = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin'); 
-let stockPriceElement = document.getElementById('bitcoin-price');
+const stockPriceElement = document.getElementById('bitcoin-price');
 let lastPrice = null;
 
-ws.onmessage = (evt) => {
-    let stockObject = JSON.parse(evt.data);
-    let price = parseFloat(stockObject.bitcoin).toFixed(2);
-    stockPriceElement.innerText = price + ' $';
-    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white': price > lastPrice ? 'lightgreen' : 'red';
+async function fetchStockPrice() {
+  try {
+    const response = await fetch('https://api.coincap.io/v2/assets/bitcoin');
+    const data = await response.json();
+    const price = parseFloat(data.data.priceUsd).toFixed(2);
+    stockPriceElement.innerText = `${price} $`;
+    stockPriceElement.style.color = lastPrice === null || lastPrice === price ? 'white' : price > lastPrice ? 'lightgreen' : 'red';
     lastPrice = price;
-};
+  } catch (error) {
+    stockPriceElement.innerText = 'Error fetching price.';
+  }
+}
 
-ws.onerror = (evt) => {
-  console.error('WebSocket error:', evt);
-  stockPriceElement.innerText = 'Error fetching stock price.';
-  ws.close();
-};
+fetchStockPrice();
+setInterval(fetchStockPrice, 10000);
