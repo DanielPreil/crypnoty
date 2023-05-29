@@ -1,71 +1,96 @@
-* {
-    padding: 0%;
-    margin: 0%;
+/* Notes */
+
+.content_Container {
+    display: flex;
+    flex-direction: row;
 }
 
-.title {
-    color: white !important;
-    text-align: center;
-    font-size: 90px !important;
-    margin-bottom: 2%;
-    font-family: 'Times New Roman', Times, serif;
-
+.notesContainer {
+    flex: 1;
+    background-color: rgb(0, 27, 20);
+    border-radius: 20px;
+    margin-left: 2%;
 }
 
 #main-content {
-    color: white;
-    padding-top: 2%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    mix-blend-mode: difference;
 }
 
-#datas_about_current_crypto {
-    color: white;
-    border: 2px solid gray !important;
+.datas_about_current_crypto {
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30vw;
+    transition: 0.2s;
     border-radius: 20px;
-    height: 90px;
-    padding: 0.25% 0.25% 0.25% 0.25%;
-    margin: 0.25% 20%;
 }
 
-.current_crypto_pictures {
-    color: white;
-    height: 100%;
-    width: 10%;
-    float: left;
+.datas_about_current_crypto:hover {
+    background-color: rgb(22, 226, 90);
+    color: black;
 }
 
 .pictures {
-    width: 80px;
-    text-align: center;
-    padding: 4%;
-    padding-top: 10%;
-    padding-left: 20%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    mix-blend-mode: difference;
+}
+
+.datas_about_current_crypto:hover .pictures{
+    background-color: black;
+    mix-blend-mode: normal;
+    border-radius: 110%;
+}
+
+.current_crypto_balance {
+    padding: 1%;
+}
+
+.datas_about_current_crypto:hover .current_crypto_balance {
+    background-color: rgb(15, 15, 15);
+    border-radius: 10px;
 }
 
 .current_crypto_name {
-    color: white;;
-    height: 80%;
-    width: 65%;
-    float: left;
-    font-size: 50px;
-    text-align: left;
-    font-family: 'Courier New', Courier, monospace;
-    padding-top: 1.5%;
-    border-left: 2px solid gray;
-    padding-left: 1.5%;
+    font-size: 25px;
+    margin-left: 3%;
+    margin-right: auto;
 }
-
 
 .current_crypto_balance {
-    color: white;
-    height: 100%;
-    width: 20%;
-    float: left;
-    font-size: 40px;
-    padding-top: 0%;
-    text-align: right;
+    font-size: 25px;
+    margin-right: 10%;
 }
 
-.p-center {
-    padding-top: 10%;
-    color: gray;
+/* Notes Over */
+
+
+/* If Width <= 1024px */
+
+@media (width <= 1500px) {
+
+    .content_Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .datas_about_current_crypto {
+        justify-content: center;
+        width: 100vw;
+    }
+
+    .current_crypto_name {
+        margin-left: 3%;
+    }
+    
+    .current_crypto_balance {
+        margin-right: 0%;
+    }
 }
