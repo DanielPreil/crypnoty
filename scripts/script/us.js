@@ -1,5 +1,5 @@
 const profileContainer = document.querySelector(".profileContainer")
-const users = ["danielpreil", "qayakrah"]
+const users = ["danielpreil", "bazsitoth"]
 
 const getUsersData = async () => {  
   try {
