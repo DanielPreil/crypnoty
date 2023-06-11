@@ -16,4 +16,3 @@ async function fetchStockPrice() {
   
 fetchStockPrice();
 setInterval(fetchStockPrice, 10000);
-  

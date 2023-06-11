@@ -10,6 +10,36 @@
     background-color: rgb(0, 27, 20);
     border-radius: 20px;
     margin-left: 2%;
+    padding: 20px;
+    color: white;
+}
+
+.notesContainer h2 {
+    margin-top: 10px;
+}
+
+.notesContainer input[type="text"],
+.notesContainer textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    resize: none;
+    font-size: 18px;
+}
+
+.notesContainer textarea {
+    height: 200px;
+}
+
+.notesContainer button {
+    padding: 10px 30px;
+    background-color: #4CAF50;
+    border: none;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 #main-content {
@@ -81,9 +111,13 @@
         flex-direction: column;
     }
 
+    .notesContainer {
+        margin-left: 0%;
+    }
+    
     .datas_about_current_crypto {
         justify-content: center;
-        width: 100vw;
+        width: 100%;
     }
 
     .current_crypto_name {
@@ -93,4 +127,20 @@
     .current_crypto_balance {
         margin-right: 0%;
     }
+
+    .pictures {
+        width: 50px;
+        height: 50px;
+    }
+
+    .current_crypto_name {
+        font-size: 23px;
+    }
+
+    .current_crypto_balance {
+        font-size: 23px;
+        margin-right: 0%;
+        margin-right: 3%;
+    }
+
 }
